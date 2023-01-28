@@ -47,37 +47,57 @@ export default class Calculator extends Component {
             const values = [ ...this.state.values ];
 
             try {
+                const factor = Math.pow(10, 4);
                 switch (currentOperation) {
                     case '+':
-                        values[0] += values[1];
+                        values[0] = (values[0].toFixed(4) * factor + values[1].toFixed(4) * factor) / factor;
+
                         if(values[0].toString().length > MAX_NUMBER_DISPLAY) {
                             this.convertExponential(values[0]);
                             return;
                         }
 
+                        this.setState({ displayValue: values[0] });
                         break;
                     case '-':
-                        values[0] -= values[1];
+                        values[0] = (values[0].toFixed(4) * factor - values[1].toFixed(4) * factor) / factor;
+
                         if(values[0].toString().length > MAX_NUMBER_DISPLAY) {
                             this.convertExponential(values[0]);
                             return;
                         }
 
+                        this.setState({ displayValue: values[0] });
                         break;
                     case '*':
-                        values[0] *= values[1];
+                        values[0] = Math.round((values[0] * values[1]) * factor) / factor;
+
                         if(values[0].toString().length > MAX_NUMBER_DISPLAY) {
                             this.convertExponential(values[0]);
                             return;
                         }
+
+                        this.setState({ displayValue: values[0] });
 
                         break;
                     case '/':
                         values[0] /= values[1];
                         if(values[0].toString().length > MAX_NUMBER_DISPLAY) {
-                            this.convertExponential(values[0]);
-                            return;
+                            if(!Number.isInteger(values[0])) {
+                                const sizeWholePart = Math.trunc(values[0]).toString().length + 1;
+                                const placeAfterDecimalPoint = MAX_NUMBER_DISPLAY - sizeWholePart;
+                                values[0] = values[0].toFixed(placeAfterDecimalPoint);
+
+                                return this.setState({ displayValue: values[0] });
+                            }
+
+                            return this.convertExponential(values[0]);
                         }
+
+                        // if(values[0].toString().length > MAX_NUMBER_DISPLAY) {
+                        //     this.convertExponential(values[0]);
+                        //     return;
+                        // }
 
                         break;
                     default:
