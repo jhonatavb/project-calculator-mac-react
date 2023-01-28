@@ -37,7 +37,6 @@ export default class Calculator extends Component {
     }
 
     setOperation(operation) {
-        console.log('set op');
         if (this.state.current === 0) {
             this.setState({ operation, current: 1, clearDisplay: true });
         } else {
@@ -115,7 +114,6 @@ export default class Calculator extends Component {
             }
 
             values[1] = 0;
-            console.log(this.state.values);
 
             this.setState({
                 displayValue: values[0],
