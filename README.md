@@ -3,6 +3,8 @@ A simple calculator, based on the MAC operating system calculator, made in react
 
 Calculator ships regularly with new features and bug fixes.
 
+https://user-images.githubusercontent.com/30570208/215241754-5e9f8e3e-0918-4c4b-834e-c80bd21562c0.mp4
+
 ## Features
 - It has the four basic operations of mathematics (addition, subtraction, multiplication and division).
 - The display has a capacity of up to ten characters (including the dot).
@@ -38,4 +40,3 @@ npm i
 ```bash
 npm start
 ```
-
