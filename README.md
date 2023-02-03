@@ -30,7 +30,7 @@ Prerequisites:
 - It is necessary to have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your computer, in linux distributions it is common to have both installed, you can check using the commands "git --version" and "npm --version".
 - Clone and enter the project directory using the commands:
 ```bash
-git clone repository && cd repository
+git clone  git@github.com:jhonatavbrg/project-calculator-mac-react.git && cd project-calculator-mac-react
 ```
 - After cloning and being inside the project repository, install the dependencies using the command:
 ```bash
